@@ -45,10 +45,17 @@ class Produto
 
     public void comprar(string quantidade)
     {
+        var qtd = int.Parse(quantidade);
+        this.quantidade -= qtd;
     }
 
     public void vender()
     {
         quantidade--;
+    }
+
+    public void vender(int quantidade)
+    {
+        this.quantidade -= quantidade;
     }
 }
