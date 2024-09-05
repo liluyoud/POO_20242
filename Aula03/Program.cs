@@ -12,6 +12,31 @@ Console.WriteLine($"Saldo:   R$ {contaEspecial.saldo}");
 Console.WriteLine($"Limite:  R$ {contaEspecial.limite}");
 Console.WriteLine($"Ativo:   {contaEspecial.ativo}");
 
+Console.WriteLine("\n\nDepositar R$ 300");
+contaEspecial.Depositar(300);
+Console.WriteLine($"Saldo:   R$ {contaEspecial.saldo}");
+Console.WriteLine($"Limite:  R$ {contaEspecial.limite}");
+
+Console.WriteLine("\n\nDepositar R$ 100");
+contaEspecial.Depositar(100);
+Console.WriteLine($"Saldo:   R$ {contaEspecial.saldo}");
+Console.WriteLine($"Limite:  R$ {contaEspecial.limite}");
+
+Console.WriteLine("\n\nSacar R$ 800");
+contaEspecial.Sacar(800);
+Console.WriteLine($"Saldo:   R$ {contaEspecial.saldo}");
+Console.WriteLine($"Limite:  R$ {contaEspecial.limite}");
+
+Console.WriteLine("\n\nSacar R$ 700");
+contaEspecial.Sacar(700);
+Console.WriteLine($"Saldo:   R$ {contaEspecial.saldo}");
+Console.WriteLine($"Limite:  R$ {contaEspecial.limite}");
+
+Console.WriteLine("\n\nMudar o saldo manualmente para -5000");
+contaEspecial.saldo = -5000;
+Console.WriteLine($"Saldo:   R$ {contaEspecial.saldo}");
+Console.WriteLine($"Limite:  R$ {contaEspecial.limite}");
+
 // conta bancária
 class Conta
 {
@@ -36,11 +61,17 @@ class Conta
     }
 
     // método
-    void Sacar()
+    public void Sacar(double valor)
     {
+        // saldo: 100 limite: 1000
+        // disponivel para saque: 1100
+        // posso sacar 2000?
+        if (saldo + limite >= valor)
+            saldo -= valor;
     }
 
-    void Depositar()
+    public void Depositar(double valor)
     {
+        saldo += valor;
     }
 }
