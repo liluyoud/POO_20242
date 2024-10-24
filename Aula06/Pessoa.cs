@@ -1,6 +1,6 @@
 ﻿namespace Aula06;
 
-public class Pessoa
+public abstract class Pessoa
 {
     public string? Cpf { get; set; }
     public string? Nome { get; set; }

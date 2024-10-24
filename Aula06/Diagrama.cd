@@ -9,10 +9,22 @@
   </Class>
   <Class Name="Aula06.Professor">
     <Position X="5.75" Y="0.5" Width="1.75" />
+    <Members>
+      <Method Name="FazerChamada" Hidden="true" />
+      <Method Name="LancarNota" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Disciplinas" Type="Aula06.Disciplina">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.989" Y="0.044" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAAAAAAQAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Professor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Disciplinas" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Aula06.Aluno">
     <Position X="3" Y="2.25" Width="1.75" />
@@ -50,6 +62,22 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Coordenador.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="Aula06.Disciplina">
+    <Position X="5.75" Y="2.75" Width="1.75" />
+    <AssociationLine Name="Professor" Type="Aula06.Professor" FixedFromPoint="true">
+      <Path>
+        <Point X="6.25" Y="2.75" />
+        <Point X="6.25" Y="1.733" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Disciplina.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Professor" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
