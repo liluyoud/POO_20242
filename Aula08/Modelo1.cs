@@ -8,7 +8,7 @@
 namespace modelo1;
 
 public class Banco {
-    public List<ContaBancaria>? Contas { get; set; }
+    public List<ContaBancaria>? Contas { get; set; } = new();
     public List<Cliente>? Clientes { get; set; }
 }
 
