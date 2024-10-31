@@ -12,9 +12,17 @@ public class Banco {
     public List<Cliente>? Clientes { get; set; }
 }
 
+public class Cliente {
+    public List<ContaBancaria>? Contas { get; set; }
+}
+
 public class ContaBancaria {
     public Cliente? Cliente { get; set; }
     public List<Transacao>? Transacoes { get; set; }
+}
+
+public class Transacao {
+    public ContaBancaria? Conta { get; set; }
 }
 
 public class ContaCorrente : ContaBancaria { }
@@ -26,11 +34,3 @@ public class ContaInvestimento : ContaBancaria { }
 public class PessoaFisica : Cliente { }
 
 public class PessoaJuridica : Cliente { }
-
-public class Transacao {
-    public ContaBancaria? Conta { get; set; }
-}
-
-public class Cliente {
-    public List<ContaBancaria>? Contas { get; set; }
-}

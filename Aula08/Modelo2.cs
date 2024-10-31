@@ -11,6 +11,10 @@ public class Banco {
     public List<ContaBancaria>? Contas { get; set; }
     public List<Cliente>? Clientes { get; set; }
 }
+public class Cliente {
+    public TipoCliente? Tipo { get; set; }
+    public List<ContaBancaria>? Contas { get; set; }
+}
 
 public class ContaBancaria {
     public Cliente? Cliente { get; set; }
@@ -20,11 +24,6 @@ public class ContaBancaria {
 
 public class Transacao {
     public ContaBancaria? Conta { get; set; }
-}
-
-public class Cliente {
-    public TipoCliente? Tipo { get; set; }
-    public List<ContaBancaria>? Contas { get; set; }
 }
 
 public enum TipoConta
