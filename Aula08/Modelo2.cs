@@ -7,10 +7,11 @@
 
 namespace modelo2;
 
-public class Banco {
+public class Banco { // tem ou contem é agregação
     public List<ContaBancaria>? Contas { get; set; }
     public List<Cliente>? Clientes { get; set; }
 }
+
 public class Cliente {
     public TipoCliente? Tipo { get; set; }
     public List<ContaBancaria>? Contas { get; set; }
