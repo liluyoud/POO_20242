@@ -5,7 +5,5 @@ public enum Periodo
     Matutino,
     Vespertino,
     Noturno,
-    MatutinoVespertino,
-    VespertinoNoturno,
     Integral
 }

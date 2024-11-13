@@ -14,6 +14,7 @@ public class SapiensApp
 
     public SapiensApp()
     {
+        context.RecuperaFromJson();
         cursoModule = new CursoModule(context);
         disciplinaModule = new DisciplinaModule(context);
         professorModule = new ProfessorModule(context);
@@ -29,7 +30,7 @@ public class SapiensApp
         WriteLine(" [3] Professores");
         WriteLine(" [4] Alunos");
         WriteLine("\n [9] Sair do Sistema");
-        WriteLine("-----------------------------------");
+        MenuHelper.ShowBarra();
         Write(" Opção: ");
         opcao = ReadLine();
         switch (opcao)
@@ -38,9 +39,15 @@ public class SapiensApp
             case "2": disciplinaModule.ShowMenu("Disciplinas"); break;
             case "3": professorModule.ShowMenu("Professores"); break;
             case "4": alunoModule.ShowMenu("Alunos"); break;
-            case "9": MenuHelper.SairSistema(); break;
+            case "9":
+                {
+                    context.SalvarToJson();
+                    MenuHelper.SairSistema();
+                    break;
+                }
         }
-        ShowMenu();
+        if (opcao != "9")
+            ShowMenu();
     }
 
 

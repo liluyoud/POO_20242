@@ -8,4 +8,9 @@ public class Curso
     public string? Nome { get; set; }
     public Periodo? Periodo { get; set; } 
     public int CargaHoraria { get; set; }
+
+    public override string ToString()
+    {
+        return $"[{Id}] {Nome} - {Periodo} - {CargaHoraria}h";
+    }
 }

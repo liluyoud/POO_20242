@@ -25,7 +25,7 @@ public class SapiensContext
         // salva no pasta meus documentos
         var diretorio = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         var arquivo = Path.Combine(diretorio, "sapiens.json");
-        File.WriteAllText("sapiens.json", json);
+        File.WriteAllText(arquivo, json);
     }
 
     public void RecuperaFromJson()
@@ -33,16 +33,19 @@ public class SapiensContext
         // recupera o json do arquivo
         var diretorio = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         var arquivo = Path.Combine(diretorio, "sapiens.json");
-        var json = File.ReadAllText(arquivo);
-        // transforma o json em objeto
-        var sapiens = JsonSerializer.Deserialize<SapiensContext>(json);
-        // copia os valores para o objeto atual
-        if (sapiens != null)
+        if (File.Exists(arquivo))
         {
-            Cursos = sapiens.Cursos;
-            Disciplinas = sapiens.Disciplinas;
-            Professores = sapiens.Professores;
-            Alunos = sapiens.Alunos;
+            var json = File.ReadAllText(arquivo);
+            // transforma o json em objeto
+            var sapiens = JsonSerializer.Deserialize<SapiensContext>(json);
+            // copia os valores para o objeto atual
+            if (sapiens != null)
+            {
+                Cursos = sapiens.Cursos ?? [];
+                Disciplinas = sapiens.Disciplinas ?? [];
+                Professores = sapiens.Professores ?? [];
+                Alunos = sapiens.Alunos ?? [];
+            }
         }
     }
 }

@@ -8,11 +8,20 @@ public class DisciplinaModule : BaseModule
 {
     public DisciplinaModule(SapiensContext context) : base(context) { }
 
+    public override void MenuLista()
+    {
+        MenuHelper.ShowTitulo("Lista de Disciplinas");
+        foreach (var item in Context.Disciplinas)
+        {
+            WriteLine(item.ToString());
+        }
+    }
+
     public override void MenuConsulta()
     {
         MenuHelper.ShowTitulo("Consultar Curso");
         WriteLine(" Pesquisar por: ");
-        WriteLine("-----------------------------------");
+        MenuHelper.ShowBarra();
         ReadLine();
     }
 
@@ -22,7 +31,7 @@ public class DisciplinaModule : BaseModule
         WriteLine(" Nome:          ");
         WriteLine(" Período:       ");
         WriteLine(" Carga Horária: ");
-        WriteLine("-----------------------------------");
+        MenuHelper.ShowBarra();
         ReadLine();
     }
 
@@ -30,7 +39,7 @@ public class DisciplinaModule : BaseModule
     {
         MenuHelper.ShowTitulo("Editar Curso");
         WriteLine(" Código: ");
-        WriteLine("-----------------------------------");
+        MenuHelper.ShowBarra();
         ReadLine();
     }
 
@@ -38,7 +47,7 @@ public class DisciplinaModule : BaseModule
     {
         MenuHelper.ShowTitulo("Excluir Curso");
         WriteLine(" Código: ");
-        WriteLine("-----------------------------------");
+        MenuHelper.ShowBarra();
         ReadLine();
     }
 

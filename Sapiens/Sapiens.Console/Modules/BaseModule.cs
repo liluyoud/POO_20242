@@ -5,11 +5,11 @@ namespace Sapiens.Console.Modules;
 
 public abstract class BaseModule
 {
-    private readonly SapiensContext _context;
+    public SapiensContext Context { get; set; }
 
     public BaseModule(SapiensContext context)
     {
-        _context = context;
+        Context = context;
     }
 
     public void ShowMenu(string titulo)
@@ -18,13 +18,15 @@ public abstract class BaseModule
         var opcao = MenuHelper.GetOpcao();
         switch (opcao)
         {
-            case "1": MenuConsulta(); break;
-            case "2": MenuCadastro(); break;
-            case "3": MenuEditar(); break;
-            case "4": MenuExcluir(); break;
+            case "1": MenuLista(); break;
+            case "2": MenuConsulta(); break;
+            case "3": MenuCadastro(); break;
+            case "4": MenuEditar(); break;
+            case "5": MenuExcluir(); break;
         }
     }
 
+    public abstract void MenuLista();
     public abstract void MenuConsulta();
     public abstract void MenuCadastro();
     public abstract void MenuEditar();
