@@ -1,0 +1,26 @@
+﻿@page "/counter"
+@using Sapiens.Core.Enums
+@using Sapiens.Core.Models
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        Curso curso = new Curso();
+        curso.Id = 1;
+        curso.Nome = "Sistemas de Informação";
+        curso.Periodo = Periodo.Noturno;
+        curso.CargaHoraria = 3000;
+
+        currentCount++;
+    }
+}
