@@ -4,29 +4,6 @@ namespace Sapiens.Console.Helpers;
 
 public static class MenuHelper
 {
-    public static void ShowMenu()
-    {
-        ShowTitulo("Sistema Acadêmico");
-        var opcao = "";
-        WriteLine(" [1] Cursos");
-        WriteLine(" [2] Disciplinas");
-        WriteLine(" [3] Professores");
-        WriteLine(" [4] Alunos");
-        WriteLine("\n [9] Sair do Sistema");
-        WriteLine("-----------------------------------");
-        Write(" Opção: ");
-        opcao = ReadLine();
-        switch (opcao)
-        {
-            case "1": MenuCurso.ShowMenu(); break;
-            case "2": MenuDisciplina.ShowMenu(); break;
-            case "3": MenuProfessor.ShowMenu(); break;
-            case "4": MenuAluno.ShowMenu(); break;
-            case "9": SairSistema(); break;
-        }
-        ShowMenu();
-    }
-
     public static void SairSistema()
     {
         Clear();
@@ -53,6 +30,7 @@ public static class MenuHelper
         WriteLine(" [2] Adicionar");
         WriteLine(" [3] Editar");
         WriteLine(" [4] Excluir");
+        WriteLine("\n [Enter] Menu Principal");
         WriteLine("-----------------------------------");
         Write(" Opção: ");
         return ReadLine();

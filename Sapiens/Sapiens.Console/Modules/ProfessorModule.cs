@@ -1,32 +1,22 @@
-﻿using static System.Console;
+﻿using Sapiens.Console.Helpers;
+using Sapiens.Core.Contexts;
+using static System.Console;
 
-namespace Sapiens.Console.Helpers;
+namespace Sapiens.Console.Modules;
 
-public static class MenuProfessor
+public class ProfessorModule : BaseModule
 {
-    public static void ShowMenu()
-    {
-        MenuHelper.ShowTitulo("Professores");
-        var opcao = MenuHelper.GetOpcao();
-        switch (opcao)
-        {
-            case "1": MenuConsulta(); break;
-            case "2": MenuCadastro(); break;
-            case "3": MenuEditar(); break;
-            case "4": MenuExcluir(); break;
-        }
-    }
+    public ProfessorModule(SapiensContext context) : base(context) { }
 
-    public static void MenuConsulta()
+    public override void MenuConsulta()
     {
         MenuHelper.ShowTitulo("Consultar Curso");
         WriteLine(" Pesquisar por: ");
         WriteLine("-----------------------------------");
         ReadLine();
-        ShowMenu();
     }
 
-    public static void MenuCadastro()
+    public override void MenuCadastro()
     {
         MenuHelper.ShowTitulo("Cadastrar Curso");
         WriteLine(" Nome:          ");
@@ -34,25 +24,22 @@ public static class MenuProfessor
         WriteLine(" Carga Horária: ");
         WriteLine("-----------------------------------");
         ReadLine();
-        ShowMenu();
     }
 
-    public static void MenuEditar()
+    public override void MenuEditar()
     {
         MenuHelper.ShowTitulo("Editar Curso");
         WriteLine(" Código: ");
         WriteLine("-----------------------------------");
         ReadLine();
-        ShowMenu();
     }
 
-    public static void MenuExcluir()
+    public override void MenuExcluir()
     {
         MenuHelper.ShowTitulo("Excluir Curso");
         WriteLine(" Código: ");
         WriteLine("-----------------------------------");
         ReadLine();
-        ShowMenu();
     }
 
 }

@@ -1,3 +1,2 @@
-﻿using Sapiens.Console.Helpers;
-
-MenuHelper.ShowMenu();
+﻿var app = new SapiensApp();
+app.ShowMenu();
