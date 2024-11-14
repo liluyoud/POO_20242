@@ -56,7 +56,7 @@ public class CursoModule : BaseModule
         {
             Id = id,
             Nome = nome,
-            Periodo = (Periodo)periodo,
+            Periodo = (Periodo)periodo, // casting
             CargaHoraria = cargaHoraria
         };
         
@@ -70,17 +70,57 @@ public class CursoModule : BaseModule
     public override void MenuEditar()
     {
         MenuHelper.ShowTitulo("Editar Curso");
-        WriteLine(" Código: ");
+
+        // consultar o registro
+        Write(" Informe o código: ");
+        var id = Convert.ToInt32(ReadLine());
+        var curso = Context.Cursos.Find(c => c.Id == id);
+        ShowDados(curso);
+
+        // se o curso existir, faça a edição
+        if (curso != null)
+        {
+            Write(" Edite as informações do curso:");
+            Write("\n Nome:          ");
+            curso.Nome = ReadLine();
+            Write(" Carga Horária: ");
+            curso.CargaHoraria = Convert.ToInt32(ReadLine());
+
+            WriteLine(" Período do Curso");
+            WriteLine(" [0] Matutino");
+            WriteLine(" [1] Vespertino");
+            WriteLine(" [2] Noturno");
+            WriteLine(" [3] Integral");
+            Write("\n Informe o período: ");
+            curso.Periodo = (Periodo)Convert.ToInt32(ReadLine());
+        }
         MenuHelper.ShowBarra();
+        WriteLine(" Curso alterado com sucesso!");
         ReadLine();
     }
 
     public override void MenuExcluir()
     {
         MenuHelper.ShowTitulo("Excluir Curso");
-        WriteLine(" Código: ");
-        MenuHelper.ShowBarra();
-        ReadLine();
+        // consultar o registro
+        Write(" Informe o código: ");
+        var id = Convert.ToInt32(ReadLine());
+        var curso = Context.Cursos.Find(c => c.Id == id);
+        ShowDados(curso);
+
+        if (curso != null)
+        {
+            // cerfique se o usuário quer realmente excluir
+            Write("\n Você deseja realmente excluir? [S/N]: ");
+            var opcao = ReadLine();
+            if (opcao != null && opcao.ToLower() == "s")
+            {
+                Context.Cursos.Remove(curso);
+            }
+            MenuHelper.ShowBarra();
+            Write($"Curso {curso.Nome} excluido com sucesso!");
+            ReadLine();
+        } 
     }
 
     private void ShowDados(Curso? curso)
